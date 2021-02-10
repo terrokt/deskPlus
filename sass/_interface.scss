@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper-inner {
+  max-width: 1112px;
+  margin: 0 auto;
+  padding-top: $padding-vertical;
+  padding-bottom: $padding-vertical;
+}
