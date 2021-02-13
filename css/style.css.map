@@ -1,20 +1,8 @@
 {
     "version": 3,
-    "mappings": "AGAA,AAAA,CAAC,AAAC,CACA,UAAU,CAAE,UAAU,CACvB,AAED,AAAA,cAAc,AAAC,CACb,SAAS,CAAE,MAAM,CACjB,MAAM,CAAE,MAAM,CACd,WAAW,CDDM,KAAK,CCEtB,cAAc,CDFG,KAAK,CCGvB,ACTD,AACE,eADa,CACb,cAAc,AAAC,CACb,WAAW,CFGO,IAAI,CEFvB",
+    "mappings": "AAAA,OAAO,CAAC,sHAAI,CAyBZ,AAAA,IAAI,AAAC,CArBH,WAAW,CAAE,oBAAoB,CAuBlC,AAID,AAAA,cAAc,AAAC,CACb,SAAS,CAAE,KAAK,CAChB,MAAM,CAAE,MAAM,CACd,WAAW,CAfM,KAAK,CAgBtB,cAAc,CAhBG,KAAK,CAqBvB,AAJE,AAAD,oBAAO,AAAC,CACN,SAAS,CAAE,MAAM,CACjB,MAAM,CAAE,MAAM,CACf,AAKH,AACE,eADa,CACb,cAAc,AAAC,CACb,WAAW,CA7BO,IAAI,CA8BtB,cAAc,CA9BI,IAAI,CA+BvB,AAUH,AACE,kBADgB,CAChB,cAAc,AAAC,CACb,WAAW,CA1CO,IAAI,CA2CtB,cAAc,CA3CI,IAAI,CA4CvB,AAaH,AACE,cADY,CACZ,cAAc,AAAC,CACb,WAAW,CA3DO,IAAI,CA4DtB,cAAc,CA5DI,IAAI,CA6DvB,AA8BH,AACE,eADa,CACb,cAAc,AAAC,CACb,WAAW,CA7FO,IAAI,CA8FtB,cAAc,CA9FI,IAAI,CA+FvB",
     "sources": [
-        "../sass/style.sass",
-        "../sass/_fonts.scss",
-        "../sass/_variables.scss",
-        "../sass/_interface.scss",
-        "../sass/blocks/_header.scss",
-        "../sass/blocks/_hero.scss",
-        "../sass/blocks/_sentence.scss",
-        "../sass/blocks/_simple.scss",
-        "../sass/blocks/_promo.scss",
-        "../sass/blocks/_advantages.scss",
-        "../sass/blocks/_discount.scss",
-        "../sass/blocks/_subscription.scss",
-        "../sass/blocks/_footer.scss"
+        "../style.scss"
     ],
     "names": [],
     "file": "style.css"
