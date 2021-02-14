@@ -19,15 +19,20 @@ $padding-vertical-xs: 20px;
 $padding-vertical-sm: 60px;
 $padding-vertical: 120px;
 
+$primary-color: #5e81fe;
+$devider-color: #d8e3fe;
+$primary-text-collor: #697ca6;
+
+$transition: 0.2s;
+
 // == / VARIABLES ==
-
 // == COMMON ==
-
 body {
   @include roboto;
 }
 
 .wrapper-outer {
+  border-bottom: 1px solid $devider-color;
 }
 .wrapper-inner {
   max-width: 900px;
@@ -48,10 +53,80 @@ body {
     padding-bottom: $padding-vertical-xs;
   }
 }
+
+.main-navigation {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  background-color: $primary-color;
+  margin-right: 70px;
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  font-size: 12px;
+  @include quicksand;
+  font-weight: $fw-medium;
+  &__item {
+    & + & {
+      margin-left: 40px;
+    }
+    &-link {
+      text-decoration: none;
+      color: #697ca6;
+      transition: $transition;
+      &:hover {
+        color: $primary-color;
+      }
+      &--active {
+        font-weight: $fw-bold;
+        color: $primary-color;
+      }
+    }
+  }
+}
+.socials {
+  margin-left: auto;
+}
+.socials-list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  font-size: 12px;
+  align-items: center;
+  @include quicksand;
+
+  font-weight: $fw-medium;
+  &__item {
+    & + & {
+      margin-left: 36px;
+    }
+    &-link {
+      text-decoration: none;
+      color: #697ca6;
+      transition: $transition;
+      path {
+        fill: #b6bac7;
+        transition: $transition;
+      }
+      &:hover {
+        path {
+          fill: $primary-color;
+        }
+      }
+    }
+  }
+}
 //==/ header ==
 
 //== hero ==
 .section-hero {
+  background-color: #f4f7ff;
 }
 //==/ hero ==
 
@@ -66,6 +141,7 @@ body {
 
 //== plan-and-manage ==
 .section-plan-and-manage {
+  background-color: #f5f8ff;
 }
 //==/ plan-and-manage ==
 
@@ -83,11 +159,13 @@ body {
 
 //== blog ==
 .section-blog {
+  background-color: #f5f8ff;
 }
 //==/ blog ==
 
 //== quotes ==
 .section-quotes {
+  background-color: #eaf0ff;
 }
 //==/ quotes ==
 
@@ -98,16 +176,19 @@ body {
 
 //== get-started ==
 .section-get-started {
+  background: linear-gradient(229.32deg, #6888ff 12.77%, #5e80ff 73.11%);
 }
 //==/ get-started ==
 
 //== newsletter ==
 .section-newsletter {
+  background-color: #fcfdff;
 }
 //==/ newsletter ==
 
 //== footer ==
 .section-footer {
+  border-bottom: 0;
   .wrapper-inner {
     padding-top: $padding-vertical-sm;
     padding-bottom: $padding-vertical-sm;
