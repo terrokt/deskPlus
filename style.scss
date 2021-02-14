@@ -107,6 +107,29 @@ h5 {
   text-align: center;
 }
 
+.dots {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  &__item {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: #d1d6e3;
+    transition: $transition;
+    cursor: pointer;
+
+    &--active {
+      background-color: #5283ff;
+    }
+
+    & + & {
+      margin-left: 12px;
+    }
+  }
+}
+
 // == / COMMON ==
 
 //== header ==
@@ -193,6 +216,7 @@ h5 {
 //== hero ==
 .section-hero {
   background-color: #f4f7ff;
+  position: relative;
   .hero-list {
     margin: 0;
     padding: 0;
@@ -240,6 +264,12 @@ h5 {
     border-style: solid;
     border-left-color: #5e81ff;
   }
+}
+.dots {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 //==/ hero ==
 
