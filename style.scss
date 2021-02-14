@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap');
 
 // == MIXIN ==
 @mixin roboto {
@@ -11,9 +11,13 @@
 // == / MIXIN ==
 
 // == VARIABLES ==
+$fw-light: 300;
 $fw-regular: 400;
 $fw-medium: 500;
 $fw-bold: 700;
+
+$fs-sm: 12px;
+$fs-md: 15px;
 
 $padding-vertical-xs: 20px;
 $padding-vertical-sm: 60px;
@@ -29,6 +33,7 @@ $transition: 0.2s;
 // == COMMON ==
 body {
   @include roboto;
+  color: #8d96bd;
 }
 
 .wrapper-outer {
@@ -44,6 +49,64 @@ body {
     margin: 0 auto;
   }
 }
+
+.btn {
+  border-radius: 2px;
+  @include quicksand;
+  font-size: $fs-sm;
+  font-weight: $fw-bold;
+  margin: 0;
+  padding: 12px 16px;
+  border: none;
+  background-color: none;
+  text-decoration: none;
+  transition: $transition;
+  &--primary {
+    &:hover {
+      background-color: darken(#d2e1ff, 5%);
+    }
+    color: #3a79ff;
+    background-color: #d2e1ff;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include quicksand;
+  margin: 0;
+  padding: 0;
+  font-weight: $fw-medium;
+  color: #3d4f9f;
+}
+
+h1,
+h2 {
+  font-size: 48px;
+  margin-bottom: 28px;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  @include roboto;
+  font-size: 10px;
+  margin-bottom: 16px;
+}
+
+.ta-c {
+  text-align: center;
+}
+
 // == / COMMON ==
 
 //== header ==
@@ -69,7 +132,7 @@ body {
   list-style: none;
   display: flex;
   padding: 0;
-  font-size: 12px;
+  font-size: $fs-sm;
   @include quicksand;
   font-weight: $fw-medium;
   &__item {
@@ -122,11 +185,61 @@ body {
     }
   }
 }
+.btn-wrapper {
+  margin-left: 44px;
+}
 //==/ header ==
 
 //== hero ==
 .section-hero {
   background-color: #f4f7ff;
+  .hero-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .hero-list__item {
+      height: 570px;
+      text-align: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+
+      .hero-list__item-content {
+        .text {
+          width: 55%;
+          margin: 0 auto 20px;
+          line-height: 29px;
+        }
+        h2 {
+          font-weight: $fw-light;
+          span {
+            font-weight: $fw-medium;
+          }
+        }
+      }
+    }
+  }
+}
+.icon-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 100%;
+  background-color: #fff;
+
+  &::before {
+    content: '';
+    width: 0;
+    height: 0;
+    margin-left: 14px;
+    border-width: 6px 12px;
+    border-color: transparent;
+    border-style: solid;
+    border-left-color: #5e81ff;
+  }
 }
 //==/ hero ==
 
@@ -192,6 +305,15 @@ body {
   .wrapper-inner {
     padding-top: $padding-vertical-sm;
     padding-bottom: $padding-vertical-sm;
+  }
+  .copyright {
+    display: inline-block;
+    color: #aeb8d0;
+    @include quicksand;
+    font-size: $fs-md;
+    font-weight: $fw-medium;
+    margin-left: 96px;
+    margin-top: 28px;
   }
 }
 //==/ footer ==
