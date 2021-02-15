@@ -57,16 +57,45 @@ body {
   font-weight: $fw-bold;
   margin: 0;
   padding: 12px 16px;
-  border: none;
-  background-color: none;
+  border: 1px transparent solid;
+  background: none;
   text-decoration: none;
   transition: $transition;
+  box-sizing: border-box;
   &--primary {
+    color: #3a79ff;
+    background-color: #d2e1ff;
     &:hover {
       background-color: darken(#d2e1ff, 5%);
     }
-    color: #3a79ff;
-    background-color: #d2e1ff;
+  }
+  &--secondary {
+    color: #ffffff;
+    background-color: #4c85ff;
+
+    &:hover {
+      background-color: darken(#4c85ff, 5%);
+    }
+  }
+  &--no-bg {
+    color: #adb4d2;
+    border: 1px solid #d1d1e4;
+
+    &:hover {
+      color: darken(#adb4d2, 10%);
+      border: 1px solid darken(#adb4d2, 10%);
+    }
+  }
+}
+.btn-group {
+  display: inline-flex;
+  .btn:nth-child(1) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .btn:nth-child(2) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 
@@ -254,15 +283,9 @@ h5 {
   border-radius: 100%;
   background-color: #fff;
 
-  &::before {
-    content: '';
-    width: 0;
-    height: 0;
-    margin-left: 14px;
-    border-width: 6px 12px;
-    border-color: transparent;
-    border-style: solid;
-    border-left-color: #5e81ff;
+  svg {
+    width: 12px;
+    height: 12px;
   }
 }
 .dots {
@@ -276,8 +299,18 @@ h5 {
 //== customers ==
 .section-customers {
   .wrapper-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding-top: $padding-vertical-sm;
     padding-bottom: $padding-vertical-sm;
+    .customers-link {
+      opacity: 0.4;
+      transition: $transition;
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }
 //==/ customers ==
@@ -285,6 +318,26 @@ h5 {
 //== plan-and-manage ==
 .section-plan-and-manage {
   background-color: #f5f8ff;
+  &__content {
+    width: 50%;
+    h3 {
+      font-weight: $fw-light;
+      margin-bottom: 28px;
+      span {
+        font-weight: $fw-medium;
+      }
+    }
+    .text {
+      line-height: 29px;
+      font-size: $fs-md;
+      margin-bottom: 47px;
+    }
+  }
+  .btn-group {
+    svg {
+      margin-left: 4px;
+    }
+  }
 }
 //==/ plan-and-manage ==
 
