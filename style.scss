@@ -368,7 +368,8 @@ h5 {
     font-weight: $fw-medium;
   }
   .btns {
-    text-align: center;
+    display: flex;
+    justify-content: center;
   }
 }
 .features-list {
@@ -416,14 +417,6 @@ h5 {
     }
   }
 }
-//==/ features ==
-//== stats ==
-.section-stats {
-  .wrapper-inner {
-    padding-top: $padding-vertical-sm;
-    padding-bottom: $padding-vertical-sm;
-  }
-}
 .or-block {
   display: inline-flex;
   font-weight: $fw-medium;
@@ -441,6 +434,44 @@ h5 {
     margin-right: 16px;
   }
 }
+//==/ features ==
+
+//== stats ==
+.section-stats {
+  @include quicksand;
+  display: flex;
+  background-color: #e9efff;
+  &__left,
+  &__right {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    padding: 70px 90px;
+  }
+  &__left {
+    text-align: right;
+    background-color: #6888ff;
+    color: #ffffff;
+    align-items: flex-end;
+  }
+  &__right {
+    color: #5e80ff;
+  }
+  &__icon {
+    margin-bottom: 24px;
+  }
+  &__number {
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+  &__text {
+    font-weight: $fw-medium;
+    font-size: 18px;
+    max-width: 240px;
+    line-height: 23px;
+  }
+}
+
 //==/ stats ==
 
 //== blog ==
