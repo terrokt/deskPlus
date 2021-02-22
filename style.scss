@@ -35,6 +35,10 @@ $primary-text-collor: #697ca6;
 
 $transition: 0.2s;
 
+$border-sm: 2px;
+$border-md: 5px;
+$border-circle: 100%;
+
 // == / VARIABLES ==
 // == COMMON ==
 body {
@@ -68,12 +72,12 @@ body {
   @include quicksand();
   &--size-lg {
     padding: 20px 140px 20px 24px;
-    border-radius: 5px;
+    border-radius: $border-md;
   }
 }
 .btn {
   display: inline-block;
-  border-radius: 2px;
+  border-radius: $border-sm;
   @include quicksand;
   font-size: $fs-sm;
   font-weight: $fw-bold;
@@ -95,7 +99,7 @@ body {
   }
   &--size-lg {
     padding: 20px 62px;
-    border-radius: 5px;
+    border-radius: $border-md;
   }
   &--grayscale {
     color: #7382a3;
@@ -188,7 +192,7 @@ h5 {
   &__item {
     width: 8px;
     height: 8px;
-    border-radius: 100%;
+    border-radius: $border-circle;
     background-color: #d1d6e3;
     transition: $transition;
     cursor: pointer;
@@ -220,7 +224,7 @@ h5 {
 .logo {
   width: 26px;
   height: 26px;
-  border-radius: 100%;
+  border-radius: $border-circle;
   background-color: $primary-color;
   margin-right: 70px;
 }
@@ -326,7 +330,7 @@ h5 {
   justify-content: center;
   width: 52px;
   height: 52px;
-  border-radius: 100%;
+  border-radius: $border-circle;
   background-color: #fff;
 
   svg {
@@ -429,7 +433,7 @@ h5 {
       justify-content: center;
       width: 69px;
       height: 69px;
-      border-radius: 100%;
+      border-radius: $border-circle;
       background-color: #f1f5ff;
     }
     &-title {
@@ -572,7 +576,7 @@ h5 {
 .galery-link {
   display: block;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: $border-md;
   position: relative;
   box-shadow: 0 15px 100px #e5ebf8;
 
@@ -589,7 +593,7 @@ h5 {
     display: block;
     width: 64px;
     height: 64px;
-    border-radius: 100%;
+    border-radius: $border-circle;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -687,7 +691,7 @@ h5 {
       overflow: hidden;
       width: 62px;
       height: $height;
-      border-radius: 100%;
+      border-radius: $border-circle;
       background-color: #fff;
       top: 100%;
       left: 50%;
