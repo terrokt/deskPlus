@@ -32,6 +32,7 @@ $padding-vertical: 120px;
 $primary-color: #5e81fe;
 $devider-color: #d8e3fe;
 $primary-text-collor: #697ca6;
+$white: #ffffff;
 
 $transition: 0.2s;
 
@@ -109,7 +110,7 @@ body {
     }
   }
   &--secondary {
-    color: #ffffff;
+    color: $white;
     background-color: #4c85ff;
 
     &:hover {
@@ -122,7 +123,7 @@ body {
     background-color: #ffd7d7;
     &:hover {
       background-color: darken(#d43f3f, 10%);
-      color: #ffffff;
+      color: $white;
     }
   }
   &--no-bg {
@@ -160,7 +161,6 @@ h6 {
   color: #3d4f9f;
 }
 
-h1,
 h2 {
   font-size: 48px;
   margin-bottom: 28px;
@@ -222,11 +222,14 @@ h5 {
   align-items: center;
 }
 .logo {
-  width: 26px;
-  height: 26px;
-  border-radius: $border-circle;
-  background-color: $primary-color;
-  margin-right: 70px;
+  &__link {
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: $border-circle;
+    background-color: $primary-color;
+    margin-right: 70px;
+  }
 }
 .nav-list {
   @include listNone();
@@ -240,7 +243,7 @@ h5 {
     }
     &-link {
       text-decoration: none;
-      color: #697ca6;
+      color: $primary-text-collor;
       transition: $transition;
       &:hover {
         color: $primary-color;
@@ -269,7 +272,7 @@ h5 {
     }
     &-link {
       text-decoration: none;
-      color: #697ca6;
+      color: $primary-text-collor;
       transition: $transition;
       path {
         fill: #b6bac7;
@@ -331,7 +334,7 @@ h5 {
   width: 52px;
   height: 52px;
   border-radius: $border-circle;
-  background-color: #fff;
+  background-color: $white;
 
   svg {
     width: 12px;
@@ -484,7 +487,7 @@ h5 {
   &__left {
     text-align: right;
     background-color: #6888ff;
-    color: #ffffff;
+    color: $white;
     align-items: flex-end;
   }
   &__right {
@@ -537,9 +540,9 @@ h5 {
 }
 .slider-blog {
   @include listNone();
-  border: 1px solid #d8e3fe;
+  border: 1px solid $devider-color;
   box-shadow: 0px 15px 50px #eff4ff;
-  background-color: #fff;
+  background-color: $white;
   &__item {
     padding: 64px 32px;
     display: flex;
@@ -599,7 +602,7 @@ h5 {
     left: 50%;
     transform: translate(-50%, -50%);
     transition: $transition;
-    background: #ffffff url(../img/loupe.svg) no-repeat 50% 50%;
+    background: $white url(../img/loupe.svg) no-repeat 50% 50%;
     opacity: 0;
   }
   &:hover {
@@ -672,10 +675,10 @@ h5 {
 
   &__item {
     padding: 42px 70px 60px;
-    background-color: #fff;
+    background-color: $white;
     margin-bottom: 80px;
     position: relative;
-    border: 1px solid #d8e3fe;
+    border: 1px solid $devider-color;
     box-shadow: 0 5px 50px #f3f5fa;
     &-text {
       font-size: $fs-md;
@@ -692,7 +695,7 @@ h5 {
       width: 62px;
       height: $height;
       border-radius: $border-circle;
-      background-color: #fff;
+      background-color: $white;
       top: 100%;
       left: 50%;
       transform: translateX(-50%);
@@ -713,7 +716,7 @@ h5 {
   @include quicksand();
   &__item {
     $parent: &;
-    border-bottom: 1px solid #d8e3fe;
+    border-bottom: 1px solid $devider-color;
 
     &--active {
       .arrow {
@@ -782,7 +785,7 @@ h5 {
     z-index: 10;
   }
   &-wrapper {
-    color: #fff;
+    color: $white;
     max-width: 715px;
     margin: 0 auto;
     display: flex;
@@ -790,7 +793,7 @@ h5 {
     align-items: center;
     h5,
     h2 {
-      color: #fff;
+      color: $white;
     }
     .text {
       margin-bottom: 35px;
@@ -803,7 +806,7 @@ h5 {
     .btn {
       &--primary {
         color: #565f82;
-        background-color: #fff;
+        background-color: $white;
       }
     }
   }
