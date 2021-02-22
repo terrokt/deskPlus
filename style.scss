@@ -58,6 +58,7 @@ body {
 }
 
 .btn {
+  display: inline-block;
   border-radius: 2px;
   @include quicksand;
   font-size: $fs-sm;
@@ -70,11 +71,19 @@ body {
   transition: $transition;
   box-sizing: border-box;
   cursor: pointer;
+  white-space: nowrap;
   &--primary {
     color: #3a79ff;
     background-color: #d2e1ff;
     &:hover {
       background-color: darken(#d2e1ff, 5%);
+    }
+  }
+  &--grayscale {
+    color: #7382a3;
+    background-color: #e8ecf4;
+    &:hover {
+      background-color: darken(#e8ecf4, 5%);
     }
   }
   &--secondary {
@@ -148,6 +157,7 @@ h5 {
   @include roboto;
   font-size: 10px;
   margin-bottom: 16px;
+  text-transform: uppercase;
 }
 
 .ta-c {
@@ -672,12 +682,83 @@ h5 {
 
 //== faq ==
 .section-faq {
+  h4 {
+    font-weight: $fw-medium;
+  }
+}
+.faq-accordion {
+  @include listNone();
+  @include quicksand();
+  &__item {
+    $parent: &;
+    border-bottom: 1px solid #d8e3fe;
+
+    &--active {
+      .arrow {
+        stroke: #495274;
+      }
+      #{$parent}-content {
+        display: flex;
+      }
+      #{$parent}-trigger {
+        color: #495274;
+        font-weight: $fw-bold;
+        &-icon {
+          transform: rotate(0);
+        }
+      }
+    }
+    &-trigger {
+      display: flex;
+      cursor: pointer;
+      padding: 20px;
+      &-icon {
+        margin-right: 16px;
+        transform: rotate(180deg);
+        .arrow {
+          stroke: #8e96b7;
+        }
+      }
+      &-text {
+        font-size: $fs-md;
+      }
+    }
+    &-content {
+      display: none;
+      @include roboto();
+      padding: 0 16px 16px 68px;
+      &-text {
+        flex-grow: 1;
+        font-size: $fs-md;
+        line-height: 27px;
+        letter-spacing: 0.03em;
+      }
+      &-btn {
+        margin-left: 62px;
+      }
+    }
+  }
 }
 //==/ faq ==
 
 //== get-started ==
 .section-get-started {
-  background: linear-gradient(229.32deg, #6888ff 12.77%, #5e80ff 73.11%);
+  background: linear-gradient(#6888ff, #5e80ff);
+  position: relative;
+  &::before {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background: url(../img/get-started/get-started-bg.png) no-repeat 50% 50%;
+  }
+  .wrapper-inner {
+    position: relative;
+    z-index: 10;
+  }
   &-wrapper {
     color: #fff;
     max-width: 715px;
@@ -710,6 +791,22 @@ h5 {
 //== newsletter ==
 .section-newsletter {
   background-color: #fcfdff;
+  &__left {
+    &-title {
+      @include quicksand();
+      color: #3d4f9f;
+      font-size: 18px;
+      font-weight: $fw-bold;
+      margin-bottom: 18px;
+    }
+    &-text {
+      font-size: $fs-md;
+      max-width: 330px;
+  &__right {
+  }
+  .wrapper-inner {
+    display: flex;
+  }
 }
 //==/ newsletter ==
 
