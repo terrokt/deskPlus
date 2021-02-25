@@ -160,27 +160,39 @@ h6 {
   font-weight: $fw-medium;
   color: #3d4f9f;
 }
-
-h2 {
+.section-subtitle {
   font-size: 48px;
   margin-bottom: 28px;
+  @include quicksand;
+  margin: 0;
+  padding: 0;
+  font-weight: $fw-medium;
+  color: #3d4f9f;
 }
 
-h3 {
-  font-size: 36px;
-}
-
-h4 {
-  font-size: 24px;
-  margin-bottom: 80px;
-}
-
-h5 {
+h2 {
+  //
   @include roboto;
   font-size: 10px;
   margin-bottom: 16px;
   text-transform: uppercase;
 }
+
+// h3 {
+//   font-size: 36px;
+// }
+
+// h4 {
+//   font-size: 24px;
+//   margin-bottom: 80px;
+// }
+
+// h5 {
+//   @include roboto;
+//   font-size: 10px;
+//   margin-bottom: 16px;
+//   text-transform: uppercase;
+// }
 
 .ta-c {
   text-align: center;
@@ -206,7 +218,16 @@ h5 {
     }
   }
 }
-
+.visualy-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
 // == / COMMON ==
 
 //== header ==
@@ -317,7 +338,8 @@ h5 {
           margin: 0 auto 20px;
           line-height: 29px;
         }
-        h2 {
+        .section-subtitle {
+          margin-bottom: 28px;
           font-weight: $fw-light;
           span {
             font-weight: $fw-medium;
@@ -719,8 +741,10 @@ h5 {
     border-bottom: 1px solid $devider-color;
 
     &--active {
-      .arrow {
-        stroke: #495274;
+      .faq-accordion__item-trigger-icon {
+        .arrow {
+          stroke: #495274;
+        }
       }
       #{$parent}-content {
         display: flex;
