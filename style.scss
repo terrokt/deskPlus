@@ -621,6 +621,11 @@ h3 {
   border-radius: $border-md;
   position: relative;
   box-shadow: 0 15px 100px #e5ebf8;
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 
   &::before {
     content: '';
@@ -631,23 +636,26 @@ h3 {
     left: 0;
     opacity: 0.5;
   }
-  .loupe {
+  &::after {
+    content: '';
     display: block;
+    position: absolute;
+
     width: 64px;
     height: 64px;
     border-radius: $border-circle;
-    position: absolute;
+
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     transition: $transition;
     background: $white url(../img/loupe.svg) no-repeat 50% 50%;
+
     opacity: 0;
   }
-  &:hover {
-    .loupe {
-      opacity: 1;
-    }
+  &:hover::after {
+    opacity: 1;
   }
 
   &--big {
