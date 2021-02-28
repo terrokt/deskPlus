@@ -17,11 +17,31 @@
 // == / MIXIN ==
 
 // == VARIABLES ==
+
+$breakpoint-min-xs: 0;
+$breakpoint-max-xs: $breakpoint-min-xs - 1;
+
+$breakpoint-min-sm: 576px;
+$breakpoint-max-sm: $breakpoint-min-sm - 1;
+
+$breakpoint-min-md: 768px;
+$breakpoint-max-md: $breakpoint-min-md - 1;
+
+$breakpoint-min-lg: 992px;
+$breakpoint-max-lg: $breakpoint-min-lg - 1;
+
+$breakpoint-min-xl: 1200px;
+$breakpoint-max-xl: $breakpoint-min-xl - 1;
+
+$breakpoint-min-xxl: 1400p;
+$breakpoint-max-xxl: $breakpoint-min-xxl - 1;
+
 $fw-light: 300;
 $fw-regular: 400;
 $fw-medium: 500;
 $fw-bold: 700;
 
+$fs-xs: 10px;
 $fs-sm: 12px;
 $fs-md: 15px;
 
@@ -40,7 +60,10 @@ $border-sm: 2px;
 $border-md: 5px;
 $border-circle: 100%;
 
+$base: 4px;
 // == / VARIABLES ==
+// == FUNCTIONS ==
+// == / FUNCTIONS ==
 // == COMMON ==
 body {
   @include roboto;
@@ -48,6 +71,7 @@ body {
 }
 
 .wrapper-outer {
+  padding: 0 $base * 5;
   border-bottom: 1px solid $devider-color;
 }
 .wrapper-inner {
@@ -64,7 +88,7 @@ body {
 
 .input {
   font-size: $fs-sm;
-  padding: 12px 16px;
+  padding: $base * 3 $base * 4;
   background-color: #efeff7;
   color: #7a85ad;
   border: 1px solid transparent;
@@ -72,7 +96,7 @@ body {
   outline: none;
   @include quicksand();
   &--size-lg {
-    padding: 20px 140px 20px 24px;
+    padding: $base * 5 $base * 35 $base * 5 $base * 6;
     border-radius: $border-md;
   }
 }
@@ -83,7 +107,7 @@ body {
   font-size: $fs-sm;
   font-weight: $fw-bold;
   margin: 0;
-  padding: 12px 16px;
+  padding: $base * 3 $base * 4;
   border: 1px transparent solid;
   background: none;
   text-decoration: none;
@@ -99,7 +123,7 @@ body {
     }
   }
   &--size-lg {
-    padding: 20px 62px;
+    padding: $base * 5 $base * 15;
     border-radius: $border-md;
   }
   &--grayscale {
@@ -161,45 +185,33 @@ h6 {
   color: #3d4f9f;
 }
 .section-subtitle {
-  font-size: 48px;
+  font-size: $base * 12;
   @include quicksand;
   margin: 0;
-  margin-bottom: 28px;
+  margin-bottom: $base * 7;
   padding: 0;
   font-weight: $fw-medium;
   color: #3d4f9f;
   &--sm {
-    font-size: 24px;
+    font-size: $base * 6;
   }
   &--md {
-    font-size: 36px;
+    font-size: $base * 9;
   }
 }
 
 h2 {
   font-weight: $fw-medium;
   @include roboto;
-  font-size: 10px;
-  margin-bottom: 16px;
+  font-size: $fs-xs;
+  margin-bottom: $base * 4;
   text-transform: uppercase;
 }
 
 h3 {
-  font-size: 36px;
+  font-size: $base * 9;
   font-weight: $fw-regular;
 }
-
-// h4 {
-//   font-size: 24px;
-//   margin-bottom: 80px;
-// }
-
-// h5 {
-//   @include roboto;
-//   font-size: 10px;
-//   margin-bottom: 16px;
-//   text-transform: uppercase;
-// }
 
 .ta-c {
   text-align: center;
@@ -209,8 +221,8 @@ h3 {
   display: flex;
   @include listNone();
   &__item {
-    width: 8px;
-    height: 8px;
+    width: $base * 2;
+    height: $base * 2;
     border-radius: $border-circle;
     background-color: #d1d6e3;
     transition: $transition;
@@ -221,7 +233,7 @@ h3 {
     }
 
     & + & {
-      margin-left: 12px;
+      margin-left: $base * 3;
     }
   }
 }
@@ -238,25 +250,99 @@ h3 {
 // == / COMMON ==
 
 //== header ==
+
 .section-header {
+  position: relative;
+  padding: 0;
   .wrapper-inner {
-    padding-top: $padding-vertical-xs;
-    padding-bottom: $padding-vertical-xs;
+    padding: $base * 5;
   }
 }
+.navigation-wrap {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  .section-header & {
+    @media (max-width: $breakpoint-max-lg) {
+      display: none;
+      position: absolute;
+      z-index: 10;
+      top: 100%;
+      right: 0;
+      left: 0;
+      background-color: #fff;
+    }
+  }
 
+  @media (max-width: $breakpoint-max-lg) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .socials,
+    .btn-wrapper {
+      margin: 0;
+      margin-top: $base * 5;
+    }
+
+    .logo {
+      margin-bottom: $base * 5;
+      &__link {
+        margin: 0;
+      }
+    }
+  }
+}
+.btn-burger {
+  display: none;
+  margin-left: auto;
+  &__line {
+    display: block;
+    width: $base * 3;
+    height: $base / 2;
+    background-color: #b6bac7;
+    & + & {
+      margin-top: $base / 2;
+    }
+  }
+  .section-header & {
+    @media (max-width: $breakpoint-max-lg) {
+      display: block;
+    }
+  }
+}
 .main-navigation {
   display: flex;
   align-items: center;
+
+  .section-footer & {
+    @media (max-width: $breakpoint-max-lg) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .socials,
+      .btn-wrapper {
+        margin: 0;
+        margin-top: $base * 5;
+      }
+
+      .logo {
+        margin-bottom: $base * 5;
+        &__link {
+          margin: 0;
+        }
+      }
+    }
+  }
 }
 .logo {
   &__link {
     display: block;
-    width: 26px;
-    height: 26px;
+    width: $base * 6;
+    height: $base * 6;
     border-radius: $border-circle;
     background-color: $primary-color;
-    margin-right: 70px;
+    margin-right: $base * 17;
   }
 }
 .nav-list {
@@ -267,7 +353,7 @@ h3 {
   font-weight: $fw-medium;
   &__item {
     & + & {
-      margin-left: 40px;
+      margin-left: $base * 10;
     }
     &-link {
       text-decoration: none;
@@ -289,14 +375,14 @@ h3 {
 .socials-list {
   @include listNone();
   display: flex;
-  font-size: 12px;
+  font-size: $base * 3;
   align-items: center;
   @include quicksand;
 
   font-weight: $fw-medium;
   &__item {
     & + & {
-      margin-left: 36px;
+      margin-left: $base * 9;
     }
     &-link {
       text-decoration: none;
@@ -315,16 +401,21 @@ h3 {
   }
 }
 .btn-wrapper {
-  margin-left: 44px;
+  margin-left: $base * 11;
 }
+
 //==/ header ==
 
 //== hero ==
 .section-hero {
+  .btn-icon-play-wrapper {
+    margin-bottom: $base * 30;
+  }
+  padding: 0;
   background-color: #f4f7ff;
   position: relative;
   .dots {
-    bottom: 28px;
+    bottom: $base * 7;
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
@@ -333,7 +424,6 @@ h3 {
     @include listNone();
 
     .hero-list__item {
-      height: 570px;
       text-align: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -342,11 +432,11 @@ h3 {
       .hero-list__item-content {
         .text {
           width: 55%;
-          margin: 0 auto 20px;
-          line-height: 29px;
+          margin: 0 auto $base * 5;
+          line-height: $base * 7;
         }
         .section-subtitle {
-          margin-bottom: 28px;
+          margin-bottom: $base * 7;
           font-weight: $fw-light;
           span {
             font-weight: $fw-medium;
@@ -360,14 +450,14 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: $base * 13;
+  height: $base * 13;
   border-radius: $border-circle;
   background-color: $white;
 
   svg {
-    width: 12px;
-    height: 12px;
+    width: $base * 3;
+    height: $base * 3;
   }
 }
 
@@ -406,15 +496,15 @@ h3 {
     width: 50%;
     h3 {
       font-weight: $fw-light;
-      margin-bottom: 28px;
+      margin-bottom: $base * 7;
       span {
         font-weight: $fw-medium;
       }
     }
     .text {
-      line-height: 29px;
+      line-height: $base * 7;
       font-size: $fs-md;
-      margin-bottom: 47px;
+      margin-bottom: $base * 12;
     }
     .asside-img {
       position: absolute;
@@ -424,7 +514,7 @@ h3 {
   }
   .btn-group {
     svg {
-      margin-left: 4px;
+      margin-left: $base;
     }
   }
 }
@@ -438,7 +528,7 @@ h3 {
   .section-subtitle {
     font-weight: $fw-medium;
 
-    margin-bottom: 92px;
+    margin-bottom: $base * 23;
   }
   .btns {
     display: flex;
@@ -448,13 +538,13 @@ h3 {
 .features-list {
   display: flex;
   @include listNone();
-  margin: 0 0 92px;
+  margin: 0 0 $base * 23;
   text-align: center;
   &__item {
     flex-basis: 25%;
     position: relative;
     &:not(:first-child) {
-      margin-left: 40px;
+      margin-left: $base * 10;
     }
     &:not(:first-child)::before {
       content: '';
@@ -510,6 +600,7 @@ h3 {
 
 //== stats ==
 .section-stats {
+  padding: 0;
   @include quicksand;
   display: flex;
   background-color: #e9efff;
@@ -559,6 +650,11 @@ h3 {
 }
 .slider-wrapper {
   position: relative;
+  @media (max-width: $breakpoint-max-xl) {
+    .arrow-group {
+      display: none;
+    }
+  }
   .slider-arrow {
     position: absolute;
     top: 50%;
@@ -585,6 +681,7 @@ h3 {
   &__item {
     padding: 64px 32px;
     display: flex;
+    justify-content: space-between;
 
     .text {
       font-weight: $fw-regular;
@@ -600,7 +697,6 @@ h3 {
     }
 
     &-content {
-      margin-left: 6%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -746,8 +842,7 @@ h3 {
       background-color: $white;
       top: 100%;
       left: 50%;
-      transform: translateX(-50%);
-      margin-top: -$height/2;
+      transform: translate(-50%, -$height/2);
     }
   }
 }
